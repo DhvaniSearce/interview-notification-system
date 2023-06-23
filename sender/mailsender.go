@@ -10,7 +10,6 @@ import (
 )
 
 func Sendmail(p []mongodb.Fields, templatePath string) {
-
 	for _, i := range p {
 		var body bytes.Buffer
 		t, err := template.ParseFiles(templatePath)
