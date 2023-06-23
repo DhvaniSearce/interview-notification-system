@@ -11,15 +11,11 @@ import (
 )
 
 type Fields struct {
-	// 	"candidate_name":"Dhvani",
-	// 	"candidate_id":25,
-	// 	"interviewer_id":3,
-	// 	"scheduled_time":"15-06-2023 16:00"
-
+	Summary       string `bson:"summary"`
+	Description   string `bson:"description"`
 	CandidateName string `bson:"candidate_name"`
-	CandidateID   int    `bson:"candidate_id"`
-	InterviewerID int    `bson:"interviewer_id"`
-	ScheduledTme  string `bson:"scheduled_time"`
+	StartTime     string `bson:"start_time"`
+	EndTime       string `bson:"end_time"`
 	EmailID       string `bson:"email_id"`
 }
 
