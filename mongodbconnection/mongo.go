@@ -1,4 +1,4 @@
-package mongodb
+package mongodbconnection
 
 import (
 	"context"
@@ -11,6 +11,10 @@ import (
 )
 
 type Fields struct {
+	// 	"candidate_name":"Dhvani",
+	// 	"candidate_id":25,
+	// 	"interviewer_id":3,
+	// 	"scheduled_time":"15-06-2023 16:00"
 	Summary       string `bson:"summary"`
 	Description   string `bson:"description"`
 	CandidateName string `bson:"candidate_name"`
@@ -43,10 +47,25 @@ func Run() []Fields {
 	if err = cur.All(context.TODO(), &interviewer); err != nil {
 		fmt.Println(err)
 	}
+
+	// data := bson.M{
+	// 	"summary":        "Hello hi!",
+	// 	"description":    "google",
+	// 	"candidate_name": "abhi",
+	// 	"start_time":     "15-06-2023 16:00",
+	// 	"end_time":       "15-07-2023 16:00",
+	// 	"email_id":       "dhvani@gmail.com",
+	// }
+	// _, err = collection.InsertOne(context.Background(), data)
+	// if err != nil {
+	// 	panic(err)
+	// }
+
 	defer cur.Close(context.Background())
 	for _, i := range interviewer {
 		fmt.Println(i)
 	}
+
 	// fmt.Println(interviewer[0].CandidateName)
 	return interviewer
 }
